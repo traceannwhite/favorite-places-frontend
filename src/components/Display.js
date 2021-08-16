@@ -1,13 +1,13 @@
 import React from "react";
 
 const Display = (props) => {
-  const places = props;
+  const { places } = props;
 
   const loaded = () => (
     <div>
       {places.map((place) => (
         <article>
-          <img src={place.img} alt="" />
+          <img src={place.img} alt="" style={{ width: "300px" }} />
           <h1>{place.name}</h1>
           <h2>{place.description}</h2>
         </article>

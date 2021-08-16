@@ -32,8 +32,7 @@ function App() {
           <Route
             exact
             path="/"
-            render={(rp) => <Display {...rp} />}
-            places={places}
+            render={(rp) => <Display {...rp} places={places} />}
           />
         </Switch>
       </main>
