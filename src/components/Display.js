@@ -10,6 +10,21 @@ const Display = (props) => {
           <img src={place.img} alt="" style={{ width: "300px" }} />
           <h1>{place.name}</h1>
           <h2>{place.description}</h2>
+          <button
+            onClick={() => {
+              props.selectPlace(place);
+              props.history.push("/edit");
+            }}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              props.deletePlace(place);
+            }}
+          >
+            Delete
+          </button>
         </article>
       ))}
     </div>
