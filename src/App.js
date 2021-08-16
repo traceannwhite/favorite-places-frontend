@@ -5,7 +5,7 @@ import Display from "./components/Display";
 
 function App() {
   // URL variable
-  const url = "http://localhost:4000";
+  const url = "https://favorite-places-tw.herokuapp.com";
 
   // list of places
   const [places, setPlaces] = useState([]);

@@ -1,0 +1,1 @@
+mongodb+srv://tracewhite:tracewhite@cluster0.hnm4r.mongodb.net/placesapi?retryWrites=true&w=majority
