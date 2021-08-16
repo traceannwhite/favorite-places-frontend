@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Display from "./components/Display";
 
 function App() {
+  // URL variable
+  const url = "http://localhost:4000";
+
+  // list of places
+  const [places, setPlaces] = useState([]);
+
+  // function for getting the list of places
+  const getPlaces = () => {
+    fetch(url + "/places")
+      .then((response) => response.json())
+      .then((data) => {
+        setPlaces(data);
+      });
+  };
+
+  //useeffect to initial fetching
+  useEffect(() => getPlaces(), []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Oh, the places you'll go...</h1>
+      <h2>Favorite Escapes</h2>
+      <hr />
+      <main>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(rp) => <Display {...rp} />}
+            places={places}
+          />
+        </Switch>
+      </main>
     </div>
   );
 }
